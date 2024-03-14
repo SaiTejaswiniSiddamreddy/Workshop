@@ -1,0 +1,558 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="code.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+      <style>
+        :root {
+--color-black: white ;
+--color-white: black;
+--color-grey:  black;
+--sticky-top-pos: 15vh;
+--buffer: 5rem;
+}
+
+
+html,
+body {
+margin: 0 auto;
+padding: 0;
+background-color:white;
+color: black;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+
+}
+
+body::-webkit-scrollbar{
+  display: none;
+}
+
+.timeline__time h3 {
+font-family: 'Righteous', cursive;
+}
+
+h3, h5 {
+margin-top: 0%;
+margin-bottom: 0%;
+line-height: normal;
+font-size: 16px;
+}
+
+.timeline {
+padding-bottom: 25%;
+width : 100%;
+margin: 0 auto;
+}
+
+.timeline__section {
+display: flex;
+flex-direction: row;
+align-items: start;
+position: relative;
+}
+
+.timeline__left >:first-child{
+font-size: 1.5rem;
+}
+.timeline__left{
+flex : 0.15;
+float : left;
+
+}
+.timeline__left,
+.timeline__middle,
+.timeline__tracker {
+position: sticky;
+top: var(--sticky-top-pos);
+/*   margin-bottom: var(--buffer); */
+}
+
+.timeline__left,
+.timeline__middle {
+margin-bottom: var(--buffer);
+}
+
+.timeline__right {
+flex : 0.85;
+
+background: linear-gradient(
+  180deg,
+  #ffbe98 0%,
+  #ffbe98 100%,
+  #ffbe98  0%,
+  #ffbe98  100%
+);
+font-family :Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.timeline__right >div{
+background-color:white;
+margin-left: 4px;
+text-align: center;
+display: flex;
+flex-direction: row;
+padding-top: 15px;
+align-items: center;
+justify-content: center;
+padding-right: 3%;
+background: linear-gradient(
+to right,
+#fff 0%,
+#fff 5%,
+black  5%,
+lavender  30%,
+#fff 31%,
+#fff 100%
+);
+
+}
+
+.timeline__right_speakers {
+width: 30%;
+margin-left: 1%;
+margin-right: 1%;
+flex : 0.35;
+padding-bottom: 20px;
+
+}
+.timeline__right_details{
+flex : 0.65;
+text-align: start;
+border-bottom: 0.5px solid #ffbe98;
+padding-bottom: 20px;
+
+}
+
+.speakers {
+align-content: center;
+padding-left: 20%;
+padding-right: 20%;
+}
+
+.avatar {
+vertical-align: middle;
+width: 120px;
+height: 120px;
+
+padding: 1.5px;
+}
+
+.icons{
+    vertical-align: middle;
+    width: 120px;
+    height: 120px;
+    
+    padding: 0.5px;
+}
+@media(max-width: 790px){
+ 
+ h3,h5{
+  font-size : 13px;
+ }
+ li{
+  font-size: 11px;
+ }
+ .avatar{
+  width: 50px;
+height: 50px;
+ }
+
+ .icons{
+    width: 60px;
+    height: 60px;
+ }
+ .special{
+ width: 55px;
+height: 55px;
+ }
+}
+
+@media(max-width: 600px){
+    h3,h5{
+  font-size : 13px;
+ }
+ li{
+  font-size: 11px;
+ }
+ .avatar{
+  width: 40px;
+height: 40px;
+border-radius: 40%;
+ }
+
+ .icons{
+    width: 50px;
+    height: 50px;
+ }
+ .special{
+ width: 55px;
+height: 55px;
+ }
+}
+.timeline__time {
+width: 100%;
+padding: 0% 1% 0 0 ;
+float: left ;
+}
+
+.timeline__content > h5{
+  font-weight: bolder;
+}
+
+.timeline__bullet {
+--bullet-dims: 20px;
+background-color: black;
+width: var(--bullet-dims);
+height: var(--bullet-dims);
+border-radius: 99999%;
+transform: translateX(calc(var(--bullet-dims) / 2 + 2px));
+float: left;
+}
+
+.timeline__content {
+font-size: 1.4rem;
+transition: color 1s cubic-bezier(0, 0.39, 0.58, 1);
+padding-left: 20px;
+padding-right: 20px;
+}
+
+.timeline__content h5{
+padding-top: 10px;
+padding-bottom: 10px;
+font-weight: 400;
+}
+
+.timeline__content h5:hover {
+color: #ffbe98;
+}
+
+.bold, .timeline__time >h5{
+font-family: 'Montserrat', sans-serif;
+font-weight: 800;
+}
+
+input{
+background-color: white;
+border : 0;
+font-weight: bolder;
+float : right;
+}
+
+.animate-on-scroll {
+color: black;
+}
+
+
+.tabset > input[type="radio"] {
+position: absolute;
+left: -200vw;
+}
+
+.tabset .tab-panel {
+display: none;
+}
+
+.tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+.tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+.tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+.tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+.tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+.tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+display: block;
+}
+
+/*
+Styling
+*/
+body {
+font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+color: #333;
+font-weight: 300;
+}
+
+.tabset > label {
+position: relative;
+display: inline-block;
+padding: 15px 15px 25px;
+border: 1px solid transparent;
+border-bottom: 0;
+cursor: pointer;
+font-weight: 600;
+font-family: 'Montserrat', sans-serif;
+}
+
+.tabset > label::after {
+content: "";
+position: absolute;
+left: 15px;
+bottom: 10px;
+width: 22px;
+height: 4px;
+background: #8d8d8d;
+}
+
+.tabset > label:hover,
+.tabset > input:focus + label {
+color: #ffbe98;
+}
+
+.tabset > label:hover::after,
+.tabset > input:focus + label::after,
+.tabset > input:checked + label::after {
+background:#ffbe98;
+}
+
+.tabset > input:checked + label {
+border-color: #ccc;
+border-bottom: 1px solid #fff;
+margin-bottom: -1px;
+}
+
+.tab-panel {
+
+border-top: 1px solid #ccc;
+}
+
+
+/*
+Demo purposes only
+*/
+*,
+*:before,
+*:after {
+box-sizing: border-box;
+}
+
+body {
+padding-left: 30px;
+padding-top: 30px;
+}
+.special{
+vertical-align: middle;
+width: 60px;
+height: 60px;
+border-radius: 0%;
+
+}
+
+</style>
+</head>
+  <body>
+    <header>
+      <nav>
+          <ul>
+              <li><a href="homepage.html">HOME</a></li>
+              <li><a href="mission.html">MISSION</a></li>
+              <li><a href="programs.html">PROGRAM</a></li>
+              <li><a href="events.html">UPCOMING EVENTS</a></li>
+              <li><a href="quotes.html">QUOTES</a></li>
+              <li><a href="login.html">LOGIN</a></li>
+              <li><a href="signup.html">SIGNUP</a></li>
+          </ul>
+      </nav>
+  </header>
+
+    <div class="tabset">
+      <!-- Tab 1 -->
+      <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+      <label for="tab1">Upcoming Events</label>
+      
+      
+      <div class="tab-panels">
+        <section id="marzen" class="tab-panel">
+          <div style="height: 5vh">
+          <br>
+          <br>
+            <div class="timeline">
+              <div class="timeline__section">
+                <div class="timeline__left">
+                  
+                </div>
+                <div class="timeline__tracker">
+                  <div class="tracker"></div>
+                </div>
+                <div class="timeline__middle">
+                  <div class="timeline__bullet"></div>
+                </div>
+                
+                <div class="timeline__right">
+                   
+                    <div>
+                        <div class="timeline__right_speakers">
+                            <div class="speakers">
+                                <img src="plants.jpeg" alt="" class="avatar">
+                            </div>
+                        </div>
+                        
+                        <div class="timeline__right_details">
+                            <div class="timeline__content">
+                                
+                                <h5><span class="bold">Van Mohatsav</span></h5>
+                                <p>
+                                    
+                                    We are excited to announce that on 16th March 2024, we will be distributing a few plants.🪴 .
+                                    The plants will be available for adoption, and you can place them anywhere in our campus area. You will be responsible for taking care of your plants, and we will write your names on the pots as a way of acknowledging your commitment to nurturing them. We hope that you will be able to join us for this event and help us make it a success.
+                                    
+                                    </p> 
+                                
+                              </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            <!--SEC0-->
+
+            <div class="timeline__section">
+                <div class="timeline__left">
+                </div>
+                <div class="timeline__tracker">
+                  <div class="tracker"></div>
+                </div>
+                <div class="timeline__middle">
+                  <div class="timeline__bullet"></div>
+                </div>
+                
+                <div class="timeline__right">
+                    <div>
+                        <div class="timeline__right_speakers">
+                            <div class="speakers">
+                                <img src="greencampus.jpeg" alt="" class="avatar">
+                            </div>
+                        </div>
+                        
+                        <div class="timeline__right_details">
+                            <div class="timeline__content">
+                                
+                                </h5></a>
+                                <h5><span class="bold">Green Campus Clean-Up Drive</span></h5>
+                                <p>Join us on 20th March for a collective effort to keep our campus green and clean! We'll be picking up litter, planting trees, and beautifying our surroundings. Bring your friends and make a positive impact on the environment together.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+            
+              
+              <div class="timeline__section">
+                <div class="timeline__left">
+                </div>
+                <div class="timeline__tracker">
+                  <div class="tracker"></div>
+                </div>
+                <div class="timeline__middle">
+                  <div class="timeline__bullet"></div>
+                </div>
+                
+                <div class="timeline__right">
+                    <!--5-->
+                    <div>
+                        <div class="timeline__right_speakers">
+                            <div class="speakers">
+                                <img src="blood.jpeg" alt="" class="avatar">
+                            </div>
+                        </div>
+                        
+                        <div class="timeline__right_details">
+                            <div class="timeline__content">
+                                </h5></a>
+                                <h5><span class="bold"> Blood Donation Camp 💉</span></h5> 
+                                <p>Make a difference in someone's life by donating blood at our camp this Saturday. Every donation can save up to three lives! Join us on 1st April in partnership with local hospitals to support those in need.</p>
+                            
+                            </div>
+                            
+                        </div>
+
+                        
+                    </div>
+
+                    
+                </div>
+              </div>
+              <!--SEC1-->
+              <div class="timeline__section">
+                <div class="timeline__left">
+                </div>
+                <div class="timeline__tracker">
+                  <div class="tracker"></div>
+                </div>
+                <div class="timeline__middle">
+                  <div class="timeline__bullet"></div>
+                </div>
+                
+                <div class="timeline__right">
+                    <div>
+                        <div class="timeline__right_speakers">
+                            <div class="speakers">
+                                <img src="career.jpeg" alt="" class="avatar">
+                            </div>
+                        </div>
+                        
+                        <div class="timeline__right_details">
+                            <div class="timeline__content">
+                                </h5></a>
+                                <h5><span class="bold">Career Development Workshop 💼</span></h5>
+                                <p>Invest in your future with our career development workshop on 7th April. Gain valuable insights on resume building, interview skills, and networking strategies to kickstart your professional journey.</p>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+              </div>
+
+          
+        </body>
+      
+        <script>
+          function change(Id){
+              var elem = document.getElementById(Id);
+              if (elem.value=="x") elem.value = "+";
+              else elem.value = "x";
+          }
+          const timelines = document.querySelectorAll(".timeline__right");
+        
+          const trackers = document.querySelectorAll(".timeline__tracker");
+          //console.log(timelines);
+        
+          window.addEventListener(
+              "scroll",
+              (e) => {
+              timelines.forEach((timeline, i) => {
+              //  Animate on scroll
+              if (trackers[i].offsetTop > 0) {
+              timeline
+              .querySelector(".timeline__content")
+              .classList.add("animate-on-scroll");
+              }else {
+              timeline
+              .querySelector(".timeline__content")
+              .classList.remove("animate-on-scroll");
+              }
+              
+              //       Timeline progress
+              timeline.style.background = `linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) ${
+                  trackers[i].offsetTop + 5
+              }px, 7A78D8  ${
+                  trackers[i].offsetTop + 5
+              }px, 7A78D8 100%)`;
+              });
+              },
+              { passive: true }
+          );
+        </script>
+        <footer>
+          <p>&copy; 2024 Rotaract District Oraganisation</p>
+      </footer>
+      </html>
